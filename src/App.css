@@ -1,0 +1,1433 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.cdnfonts.com/css/bebas-neue');
+html{
+  width:100%;
+  height:100%; 
+}
+body{
+  width: 100%;
+    height: 100vh;
+    position: fixed;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+.hidden{
+  display:none;
+}
+#root {
+  margin: 0 auto;
+  padding:0;
+  margin:0;
+  font-size:16px;
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal; 
+}
+
+.main-page{
+  padding-top:2rem;
+  padding-bottom:2rem;
+  padding-left:6rem;
+  padding-right:6rem;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+/*NavBar styles*/
+.liteflix-navbar{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.app-presentation{
+  display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    align-items: center;
+}
+.app-presentation img:first-child{
+  height:1.5rem;
+  cursor:pointer;
+}
+.app-presentation img:nth-child(2){
+  width:190px;
+}
+.user-options{
+  display:flex;
+  gap:3.5rem;
+  align-items:center;
+}
+.user-options img:first-child{
+  height:.75rem;
+}
+.user-options img:nth-child(2){
+  height:1.625rem;
+}
+.user-options img:nth-child(3){
+  height:100%;
+}
+/*movies display styles*/
+.movies-display{
+  display:grid;
+  width:100%;
+  grid-template-columns: 3fr 1fr;
+  height:80vh;
+}
+.movie-destacada{
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: justify;
+    padding-bottom: 3rem;
+    max-height: 75vh;
+    grid-column:1;
+}
+.movie-destacada h3{
+  font-weight: 400;
+    letter-spacing: 4px;
+    line-height: 30px;
+}
+.movie-destacada h3>b{
+  font-weight: 700;
+}
+.movie-destacada h1{
+  font-weight: 700;
+    font-size: 120px;
+    letter-spacing: 1rem;
+    line-height: 100px;
+    margin-left: -0.18rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+}
+.action-buttons-destacada{
+  display: flex;
+    gap: 1rem;
+}
+.action-buttons-destacada button{
+  position:relative;
+  width: 15.5rem;
+    height: 3.5rem;
+    background: #242424;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.1rem;
+    gap: 1rem;
+    font-size: 1.3rem;
+    color: #fff;
+    letter-spacing: .1rem;
+    animation:leftRightWidth 2s ease-in,textAppearance 7s ease-in;
+}
+.action-buttons-destacada button:nth-child(2)>span{
+  position:absolute;
+  display:block;
+  background:#fff;
+}
+.action-buttons-destacada button:nth-child(2)>span:first-child{
+  left:0;
+  bottom:0;
+  width:100%;
+  height:2px; 
+  transform-origin: left bottom;
+  transform:scaleX(0);
+  transition:transform .5s;
+  animation:animationBorderX 2s ease;
+  animation-fill-mode: forwards;
+ 
+}
+.action-buttons-destacada button:nth-child(2)>span:nth-child(2){
+  left:0;
+  bottom:0;
+  width:2px;
+  height:100%;
+  transform-origin: left bottom;
+  transform:scaleY(0);
+  transition:transform .5s;
+  animation:animationBorderY 2s ease;
+  animation-fill-mode: forwards;
+}
+
+.action-buttons-destacada button:nth-child(2)>span:nth-child(3){
+  right:0;
+  bottom:0;
+  width:2px;
+  height:100%;
+  transform-origin: right bottom;
+  transform:scaleY(0);
+  transition:transform 1.5s;
+  animation:animationBorderY 2s ease-in-out;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+.action-buttons-destacada button:nth-child(2)>span:nth-child(4){
+  left:0;
+  top:0;
+  width:100%;
+  height:2px;
+  transform-origin: left top;
+  transform:scaleX(0);
+  transition:transform 1.5s;
+  animation:animationBorderX 2s ease-in-out;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+.reproducir-text{
+  animation:fadeIn 4s ease-in;
+}
+.action-buttons-destacada button:nth-child(2)>.lista-text{
+  animation:fadeIn 4s ease-in;
+  background:none;
+  display:flex;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+.action-buttons-destacada button:nth-child(2)>.lista-text>img{
+  height:1rem;
+  width:1rem;
+}
+.action-buttons-destacada button>img{
+  height:1.125rem;
+}
+
+
+.destacada-text-1{
+  display:block;
+  transform:scaleY(0);
+  transform-origin: top;
+  animation:animationBorderY 1.5s ease-in;
+  animation-fill-mode: forwards;
+}
+.destacada-text-2{
+  display:block;
+  transform:scaleY(0);
+  color:#242424;
+  transform-origin: bottom;
+  animation:animationBorderY 1.5s ease-in , animationColor 1.5s ease-in;
+  animation-fill-mode: forwards;
+}
+.movie-destacada h3{
+  display:block;
+  transform:scaleY(0);
+  transform-origin: top;
+  animation:animationBorderY 1s ease-in;
+  animation-fill-mode: forwards;
+}
+
+/*Popular Movies Carousel*/
+.pelicula-principal {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/backdrop.jpg);
+	background-position: center center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal .contenedor {
+	margin: 0 auto;
+	margin-bottom: 6.25em;
+}
+
+.pelicula-principal .titulo {
+	font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+}
+
+.pelicula-principal .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principal .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principal .boton i {
+	margin-right: 1.25em;
+}
+
+/* Contenedor Titulo y Controles  */
+.contenedor-titulo-controles {
+	display: flex;
+	justify-content: center;
+  height: 10%;
+  width:70%;
+}
+.contenedor-titulo-controles div{
+  width:100%;
+  height:100%;
+  display: flex;
+    justify-content: flex-end;
+}
+
+.contenedor-titulo-controles .indicadores button {
+	background: #fff;
+	height: 3px;
+	width: 10px;
+	cursor: pointer;
+	border: none;
+	margin-right: 2px;
+}
+
+.contenedor-titulo-controles .indicadores button:hover,
+.contenedor-titulo-controles .indicadores button.activo {
+	background: red;
+}
+
+
+.peliculas-recomendadas .contenedor-carousel {
+	width: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    max-height: 90%;
+}
+
+.peliculas-recomendadas .contenedor-carousel .carousel {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction:column;
+}
+
+.peliculas-recomendadas .contenedor-carousel .carousel .pelicula {
+	min-width: 20%;
+  position:relative;
+  padding:.5rem;
+	transition: .6s ease-in all;
+}
+
+
+.peliculas-recomendadas .contenedor-carousel .carousel .pelicula img {
+	width: 80%;
+  animation:fadeIn 1s;
+	/* transition: background ease-in .6s; */
+    vertical-align: top;
+    border-radius: 3px;
+}
+.contenido-pelicula{
+	display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 0.4rem;
+}
+.contenido-pelicula .play-image{
+  width: 15%!important;
+    height: 32%!important;
+    position: absolute;
+    top: 33%;
+    cursor:pointer;
+}
+.contenido-pelicula p{
+	position: absolute;
+    top: 75%;
+    font-size: 1.5rem;
+  color:#fff;
+}
+
+.movies-populares{
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+    gap: 5%;
+    align-items: end;
+    overflow: hidden;
+    grid-column:2;
+}
+/*---- Contenido solo on Hover en Pelicula Popular ------*/
+.star-icon{
+  width:.75rem!important;
+  height:.75rem;
+}
+.contenido-hover-pelicula{
+  border-radius: 0px 0px 4px 4px;
+  background: linear-gradient(180deg, rgba(36, 36, 36, 0) 3%, #242424 22%);
+  color: #fff;
+  position: absolute;
+  top: 65%;
+  z-index: 999;
+  padding-top: 14%;
+}
+.rating-and-year-info{
+  display: flex;
+    justify-content: space-between;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.rating-and-year-info div{
+  display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.rating-and-year-info div>p{
+  font-size: 0.875rem;
+    margin-top: 0.2rem;
+}
+.resumen-pelicula{
+  font-size: .75rem;
+  font-weight: 300;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+.contenido-pelicula-hover{
+  flex-direction:row;
+}
+.play-image-hover{
+  left: 7%;
+  position:absolute;  
+  cursor:pointer;
+    top: 57%;
+    height: 2rem!important;
+    width: 2rem!important;
+}
+.contenido-pelicula-hover p{
+  top: 60%;
+    left: 25%;
+    color: #fff;
+    position: absolute;
+    font-size: 1.2rem;
+    letter-spacing: 0.05rem;
+    min-width:50%;
+} 
+.lista-contenido-pelicula{
+  width: 1rem!important;
+    height: 1rem!important;
+    object-fit: unset!important;
+    right: 7%;
+    position: absolute;
+    top: 45%;
+    cursor:pointer;
+    animation:none;
+    display:none;
+  transition:all .3s ease-in-out;
+}
+.like-contenido-pelicula{
+  width: 1.25rem!important;
+    height: 1.25rem!important;
+    object-fit: unset!important;
+    position: absolute;
+    right: 6.5%;
+    top: 60%;
+    cursor:pointer;
+  animation:none;
+  transition:all .3s ease-in-out;
+}
+
+.ver-populares{
+  cursor: pointer;
+    max-height: 2rem;
+    max-width: 100%;
+}
+.populares-title-container{
+  position:relative;
+}
+.populares-title-container .populares-dropdown{
+    top:11%;
+    align-self: end !important;
+    margin-top: 2rem;
+    z-index:9999;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-evenly !important;
+    background: #242424;
+    color: #fff;
+    animation: fadeIn 1s;
+    position: absolute;
+    min-height:80px;
+}
+.populares-dropdown div:first-child{
+  height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.populares-dropdown div:nth-child(2){
+  height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.populares-dropdown div:first-child p{
+  font-weight: 700;
+  letter-spacing: .1rem;
+  cursor:pointer;
+}
+.added-tick{
+  width: 0.75rem!important;
+    height: 0.5rem;
+    z-index: 999;
+    margin-right: 2rem;
+}
+.populares-dropdown div:nth-child(2) p{
+  font-weight:400;
+  cursor:pointer;
+}
+
+.notch-dropdown{
+  width: 18px!important;
+    height: 18px!important;
+    background: #242424;
+    position: absolute;
+    right: 8%;
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.menu-icon-button{
+  cursor:pointer;
+}
+
+/*Menu Section*/
+.menu-top-container{
+  position: absolute;
+    right: 0;
+    top: 0;
+    background: #242424;
+    color: #fff;
+    height: 100%;
+    width: 40%;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    gap: 3rem;
+    box-shadow: 0px 0px 2px 2px dimgray;
+}
+.menu-top-container .top-menu-profile{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-top-container .menu-options-list{
+  list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 0.8rem;
+    letter-spacing: .1rem;
+    font-size: 1.3rem;
+    font-weight: 200;
+    line-height: 3rem;
+}
+.menu-top-container .close-menu-button{
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.menu-top-container .user-options-menu{
+  display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+.user-options-menu img:first-child{
+  height:1rem;
+}
+.user-options-menu img:nth-child(2){
+  height:1.625rem;
+}
+.user-options-menu img:nth-child(3){
+  height:100%;
+}
+.menu-top-container .menu-options-list li>img{
+  height:1rem;
+  cursor:pointer;
+}
+.top-menu-profile img:first-child{
+  cursor:pointer;
+}
+/*Add Movie Menu*/
+.add-movie-menu{
+  position: absolute;
+    width:95%;
+    margin-left:-1.5rem;
+    top: 20%;
+    background: #242424;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-height: 35%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    z-index: 999;
+    box-shadow: 0px 0px 1px 1px #64EEBC;
+}
+.close-add-movie-menu{
+  position: absolute;
+    right: 3%;
+    top: 3%;
+    cursor:pointer;
+}
+.close-add-movie-menu h3{
+  font-weight: 100;
+    font-size: 1rem;
+}
+.add-movie-form{
+  display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.add-movie-form  .drag-zone-container{
+  display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.add-movie-form .agrega-archivo{
+  border: 1px dashed white;
+    min-height: 100px;
+    display: flex;
+    cursor:pointer;
+    position:relative;
+    margin-top:1rem;
+}
+.add-movie-form .agrega-archivo .user-input-file{
+  position: absolute;
+    text-align: center;
+    width: 100%;
+    color: red;
+    font-size: .8rem;
+}
+.add-movie-form .drag-drop-zone{
+  display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    padding: 5px;
+    justify-content: center;
+    width: 100%;
+}
+.add-movie-form .drag-drop-zone img{
+  height:1rem;
+}
+.subir-pelicula{
+  min-height: 3rem;
+    align-self: center;
+    min-width: 85%;
+    background: darkgray;
+    cursor:pointer;
+}
+.add-movietitle{
+  color:#64EEBC;
+}
+.movie-title-box input{
+  border-bottom: 1px solid white;
+    border-right: none;
+    background: transparent;
+    text-align: center;
+    color:#fff;
+    font-size:1.2rem;
+}
+.movie-title-box input:focus{
+  color:#fff;
+}
+
+.liteflix-icon-add-menu img{
+  height:1rem;
+}
+.movie-uploaded{
+  display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.movie-uploaded p:first-child{
+  letter-spacing: .1rem;
+    font-size: 1rem;
+}
+.movie-uploaded p:nth-child(2){
+  font-weight: 100;
+    font-size: .8rem;
+}
+
+.progress-bar {
+	position: relative;
+    align-self: center;
+    width: 90%;
+    height: 2rem;
+    color: white;
+}
+
+.progress-bar::before {
+	content: attr(data-label);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0.5em;
+    top: 0.5em;
+    bottom: 0.5em;
+    width: calc(var(--width, 0)* 1%);
+    min-width: 1px;
+    max-width: calc(100% - 1em);
+    background-color: var(--background-color);
+    height: 0.5rem;
+    z-index: 999;
+}
+.progress-bar-back::before {
+	background: darkgray;
+    height: 0.2rem;
+    position: absolute;
+    left: 0.5em;
+    top: 0.6em;
+    bottom: 0.5em;
+    width: 90%;
+}
+
+.cancel-upload-text{
+  position: absolute;
+    bottom: -0.7rem;
+    right: 0;
+    font-size: .8rem;
+    letter-spacing: .1rem;
+}
+.success-upload-text{
+  position: absolute;
+    bottom: -0.7rem;
+    right: 0;
+    font-size: .8rem;
+    letter-spacing: .1rem;
+    color:#64EEBC;
+
+}
+.error-upload-text{
+  position: absolute;
+    bottom: -1rem;
+    right: 0;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    cursor:pointer;
+}
+.loading-percentage-text{
+  position: absolute;
+    top: -1.2rem;
+    font-size: 1rem;
+    font-weight:200;
+    letter-spacing: .1rem;
+}
+.volver-a-home{
+  min-height: 3rem;
+    align-self: center;
+    min-width: 85%;
+    background: darkgray;
+    cursor:pointer;
+}
+.top-menu-profile>img:nth-child(2){
+  display:none;
+}
+
+/*swiper carousel styles*/
+.carousel-container{
+    display: flex;
+    flex-direction: column;
+    height:90%;
+}
+.carousel-container button{
+  height:6%;
+}
+.carousel-inside-container{
+  height:88%;
+  animation: fadeIn 2s;
+}
+.swiper {
+  height:100%;
+  animation: fadeIn 2s;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  animation: fadeIn 2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.swiper-slide .contenido-pelicula .lista-contenido-pelicula,.swiper-slide .contenido-pelicula .like-contenido-pelicula{
+  display:none;
+}
+.swiper-wrapper{
+  z-index:999;
+}
+.swiper-vertical > .swiper-wrapper{
+  z-index: 999;
+}
+.swiper-button-prev{
+  top: -4%!important;
+    width: 100%!important;
+    color: darkgray!important;
+    z-index: 9999!important;
+    transform: rotateZ(90deg);
+    left: var(--swiper-navigation-sides-offset, 0px)!important;
+}
+.swiper-button-next{
+  top: 104%!important;
+    width: 100%!important;
+    color: darkgray!important;
+    z-index: 9999!important;
+    transform: rotateZ(90deg);
+    right: var(--swiper-navigation-sides-offset, 0px)!important;
+}
+.prev-button{
+  background-color: transparent;
+    transform: rotate(180deg);
+    height: 6%;
+    border: none;
+    cursor:pointer;
+}
+.next-button{
+  background-color: transparent;
+  height: 6%;
+    border: none;
+    cursor:pointer;
+}
+.salir-menu-pelicula{
+  display:none;
+  min-height: 3rem;
+    align-self: center;
+    min-width: 85%;
+    border:1px solid darkgray;
+    cursor:pointer;
+}
+.add-movie-form .drag-drop-zone{
+  gap:.6rem;
+}
+.add-movie-form .drag-drop-zone>p::before{
+  content:'AGREGÁ UN ARCHIVO O ARRASTRALO Y SOLTALO AQUÍ';
+  display:block;
+  font-size:.8rem;
+  font-weight:300;
+  letter-spacing:.1rem;
+}
+.ver-populares{
+  width: 100%;
+    height: 100%;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: center;
+    gap: 1rem;
+    color: #fff;
+    letter-spacing: .1rem;
+    align-items:center;
+}
+
+/*Responsive queries*/
+
+@media only screen and (width>=2050px){
+  .liteflix-navbar{
+    height:55px;
+  }
+  .app-presentation img:first-child{
+    height:3rem;
+  }
+  .app-presentation img:nth-child(2){
+    height:2rem;
+  }
+  .user-options img:first-child{
+    height:1.5rem;
+  }
+  .user-options img:nth-child(2){
+    height:3.25rem;
+  }
+  .user-options img:nth-child(3){
+    height:55px;
+  }
+  .movie-destacada h1{
+    font-size: 10rem;
+    letter-spacing: 1.3rem;
+  }
+  .action-buttons-destacada{
+    gap:2rem;
+  }
+  .action-buttons-destacada button{
+    height: 84px;
+    width: 372px;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 2rem;
+      color: #fff;
+      letter-spacing: .1rem;
+       
+  }
+  .movie-destacada h3{
+    font-size: 3rem;
+  }
+  .movie-destacada{
+    gap:4rem;
+  }
+  .action-buttons-destacada button>img{
+    height:1.8rem;
+  }
+  
+} 
+/*responsive queries*/
+@media(width<=2100px){
+  #carouselWrapper{
+    height:64vh;
+  }
+  .movie-destacada{
+    gap:3.5rem;
+  }
+}
+ 
+@media(width<=1800px){
+  .movie-destacada h1{
+    font-size:9rem;
+  }
+  .movie-destacada h3{
+    font-size:2.75rem;
+  }
+  .action-buttons-destacada button{
+    height: 82px;
+    width: 367px;
+  }
+  
+  
+}
+@media(width<=1600px){
+  .movie-destacada h1{
+    font-size:8rem;
+    letter-spacing: 1rem;
+  }
+  .movie-destacada h3{
+    font-size:1.2rem;
+  }
+  .action-buttons-destacada button{
+    height: 75px;
+    width: 334px;
+  }
+  #itemsContent{
+    height:80%;
+  }
+}
+
+@media(width<=1475px){
+  #itemsContent{
+    grid-template-columns: .15fr .85fr;
+  }
+  
+} 
+@media(width<=1300px){
+  .movie-destacada h1{
+    letter-spacing: .3rem;
+    font-size:100px;
+  }
+  .contenedor-titulo-controles{
+    width:100%;
+  }
+}
+@media(width<=1230px){
+ 
+  
+  #itemsContent{
+    grid-template-columns: .1fr .9fr;
+  }
+  .action-buttons-destacada button{
+    height: 67.5px;
+    width: 300px;
+  }
+  #itemsContent{
+    grid-template-columns: 0 1fr;
+    height:50vh;
+  }
+  .movie-destacada{
+    gap:2rem;
+  }
+}
+@media(width<=1000px){
+  .main-page{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  
+  .action-buttons-destacada{
+    gap:1.5rem;
+  }
+  .action-buttons-destacada button{
+    height: 60.75px;
+    width: 270px;
+  }
+  .action-buttons-destacada button>img{
+    height:1.2rem;
+  }
+  .movie-destacada h3{
+    font-size:2rem;
+  }
+  .movie-destacada h1{
+    font-size: 90px;
+    letter-spacing: .4rem;
+  }
+  #itemsContent{
+    grid-template-columns: 1fr;
+  }
+}
+@media(width<=700px){
+  .ver-populares{
+    letter-spacing: normal;
+    font-size:1rem;
+  }
+}
+@media(width<=550px){
+  .movie-destacada h1{
+    font-size:4rem;
+    justify-content: center;
+  }
+}
+@media (height<=1130px ) and (width<=1800px){
+  
+  .peliculas-recomendadas{
+    width:75%;
+    align-items:end;
+    margin-left:25%;
+  }
+  .peliculas-recomendadas{
+    align-items:center;
+  }
+}
+
+@media (height<=600px){
+  .peliculas-recomendadas{
+    width: 80%;
+    margin-left: 20%;
+  }
+  .movies-display{
+    padding-top:2rem;
+  }
+  .contenido-pelicula p{
+    font-size:1rem;
+    top:70%
+  }
+  .contenido-hover-pelicula{
+    top:50%;
+  }
+  .contenido-pelicula-hover p{
+    font-size: .9rem;
+    left: 28%;
+    top: 63%;
+  }
+  .resumen-pelicula{
+    font-weight: 100;
+    padding-top:1.5rem;
+    letter-spacing: .1rem;
+  }
+  .star-icon{
+    width: 0.5rem !important;
+    height: 0.5rem !important;
+  }
+}
+
+@media (height<=800px ) and (width<=1800px){
+  .peliculas-recomendadas{
+    width: 60%;
+    margin-left: 40%;
+  }
+}
+@media (height<=1300 ) and (width<=1500px){
+  .contenido-pelicula .play-image{
+    width:25%!important;
+  }
+  
+}
+@media (width<=1024px ) and (height<=1366px){
+  .peliculas-recomendadas .contenedor-carousel .carousel .pelicula img{
+    width:100%;
+  }
+  .movie-uploaded{
+    margin-top:10%;
+  }
+  .movie-uploaded p{
+    font-size:2rem;
+  }
+  .peliculas-recomendadas{
+    width:100%;
+    margin:0;
+  }
+  .carousel-inside-container{
+    font-weight: 200;
+    letter-spacing: .1rem;
+  }
+  .action-buttons-destacada button{
+    width:198px;
+    height:56px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.3rem;
+    color: #fff;
+    letter-spacing: .1rem;
+  }
+  .movie-destacada h1{
+    font-size:6.5rem;
+  }
+  .movie-destacada h3{
+    font-size:1.25rem;
+  }
+  .movies-populares{
+    max-height:64vh;
+  }
+  .contenido-pelicula .play-image{
+    width:25%!important;
+  }
+  .liteflix-icon-add-menu{
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (height<=850px ) and (width<=1000px){
+  .play-image-hover{
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+    top: 59%;
+  }
+  .contenido-pelicula-hover p{
+    font-size:1rem;
+  }
+  .resumen-pelicula{
+    font-weight: 100;
+    letter-spacing: .2rem;
+    font-size: .7rem;
+  }
+}
+
+/*styles for mobile IPHONE 12 Pro Max hacia abajo*/
+@media (height<=932px ) and (width<=430px){
+  .swiper-slide .star-icon{
+    width: 0.5rem !important;
+    height: 0.5rem !important;
+  }
+  .contenido-pelicula .play-image{
+    width:14%!important;
+  }
+  .contenido-pelicula p{
+    font-size:1.2rem;
+  }
+  .main-page{
+    background-size: contain!important;
+    background-color: black;
+  }
+  .movies-display{
+    display:flex;
+    flex-direction:column;
+  }
+  .movie-destacada{
+    width:100%;
+  }
+  .movie-destacada h3{
+    font-size:1rem;
+    text-align:center;
+  }
+  .movie-destacada h1{
+    font-size:4.5rem;
+    text-align:center;
+  }
+  .action-buttons-destacada{
+    flex-direction: column;
+    align-items: center;
+  }
+  .movies-populares{
+    margin-top:3rem;
+  }
+  .contenedor-titulo-controles div{
+    justify-content: center;
+  }
+  .carousel-container{
+    width: 100%;
+    height: 80vh;
+    overflow:hidden;
+  }
+  #root{
+    background:black;
+    overflow:auto;
+  }
+  .movies-populares{
+    overflow:unset;
+  }
+  .populares-dropdown{
+    position:relative;
+  }
+  .menu-top-container{
+    width:100%;
+    padding-top:2rem;
+  }
+  .top-menu-profile>img:nth-child(2){
+    left:36%;
+    display:block;
+  }
+  .menu-top-container .menu-options-list{
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 3rem;
+  }
+  .user-options{
+    gap:1.5rem;
+  }
+  .salir-menu-pelicula{
+    display:block;
+  }
+  .movie-title-box{
+    margin:1rem;
+  }
+  .drag-zone-container{
+    margin-bottom:1.5rem;
+  }
+  .add-movie-menu{
+    box-shadow: none;
+    width: 100%;
+    height: 100vh;
+    margin-left: -2rem;
+    top: 10%;
+  }
+  .close-add-movie-menu{
+    display:none;
+  }
+  .add-movietitle{
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: .1rem;
+  }
+  .add-movie-form .drag-drop-zone{
+    gap:.6rem;
+  }
+  .add-movie-form .drag-drop-zone>p::before{
+    content:'AGREGA UN ARCHIVO';
+    display:block;
+    font-weight:200;
+    letter-spacing:.1rem;
+  }
+  .loading-percentage-text{
+    left:.5rem;
+    font-weight:200;
+  }
+  .error-upload-text{
+    right:.5rem;
+  }
+}
+
+@media (height<=1380px ) and (width<=700px){
+  .swiper-slide .star-icon{
+    width: 0.5rem !important;
+    height: 0.5rem !important;
+  }
+  .contenido-pelicula .play-image{
+    width:14%!important;
+  }
+  .contenido-pelicula p{
+    font-size:1.2rem;
+  }
+  .main-page{
+    background-size: contain!important;
+    background-color: black;
+  }
+  .movies-display{
+    display:flex;
+    flex-direction:column;
+  }
+  .movie-destacada{
+    width:100%;
+  }
+  .movie-destacada h3{
+    font-size:1rem;
+    text-align:center;
+  }
+  .movie-destacada h1{
+    font-size:4.5rem;
+    text-align:center;
+  }
+  .action-buttons-destacada{
+    flex-direction: column;
+    align-items: center;
+  }
+  .movies-populares{
+    margin-top:3rem;
+  }
+  .contenedor-titulo-controles div{
+    justify-content: center;
+  }
+  .carousel-container{
+    width: 100%;
+    height: 80vh;
+    overflow:hidden;
+  }
+  #root{
+    background:black;
+    overflow:auto;
+  }
+  .movies-populares{
+    overflow:unset;
+  }
+  .populares-dropdown{
+    position:relative;
+  }
+  .menu-top-container{
+    width:100%;
+    padding-top:2rem;
+  }
+  .top-menu-profile>img:nth-child(2){
+    left:36%;
+    display:block;
+  }
+  .menu-top-container .menu-options-list{
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 3rem;
+  }
+  .user-options{
+    gap:1.5rem;
+  }
+  .salir-menu-pelicula{
+    display:block;
+  }
+  .movie-title-box{
+    margin:1rem;
+  }
+  .drag-zone-container{
+    margin-bottom:1.5rem;
+  }
+  .add-movie-menu{
+    box-shadow: none;
+    width: 100%;
+    height: 100vh;
+    margin-left: -2rem;
+    top: 10%;
+  }
+  .close-add-movie-menu{
+    display:none;
+  }
+  .add-movietitle{
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: .1rem;
+  }
+  .add-movie-form .drag-drop-zone{
+    gap:.6rem;
+  }
+  .add-movie-form .drag-drop-zone>p::before{
+    content:'AGREGA UN ARCHIVO';
+    display:block;
+    font-weight:200;
+    letter-spacing:.1rem;
+  }
+  .loading-percentage-text{
+    left:.5rem;
+    font-weight:200;
+  }
+  .error-upload-text{
+    right:.5rem;
+  }
+}
+
+@media (height<=700px ) and (width<=300px){
+  .movie-destacada h1{
+    font-size:3rem;
+    letter-spacing: normal;
+    line-height:normal;
+  }
+  .movie-destacada h3{
+    font-size:.8rem;
+  }
+  .action-buttons-destacada button{
+    height:40px;
+    width:180px;
+  }
+  .contenido-pelicula .play-image{
+    width: 15% !important;
+  }
+  .app-presentation img:first-child{
+    left:30%;
+  }
+}
+@media (height<=750px ) and (width>1500px){
+  .contenedor-titulo-controles{
+    width:60%;
+  }
+}
+@media (height<=700px ){
+  .menu-top-container .menu-options-list{
+    overflow:scroll;
+    font-size:1rem;
+    line-height:2.5rem;
+  }
+}
+/*animations*/
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes leftRightWidth {
+  0% { 
+    opacity:0;
+    width: 0;
+    transform:scaleX(0);
+   }
+  100% { 
+    opacity:1;
+    transform:scaleX(1);
+    transform-origin:left;}
+}
+@keyframes animationBorderX {  
+  100% {       
+    transform:scaleX(1);
+  }
+}
+@keyframes animationBorderY {  
+  100% {       
+    transform:scaleY(1);
+  }
+}
+@keyframes animationColor{
+  100%{
+    color:#64EEBC;
+  }
+}
+
